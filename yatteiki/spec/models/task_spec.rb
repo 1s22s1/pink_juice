@@ -9,7 +9,7 @@ RSpec.describe Task, type: :model do
     describe '有効な入力' do
       let(:title) { '作業名を記載する' }
       let(:description) { '説明を記載する' }
-      
+
       it { is_expected.to eq true }
     end
 
