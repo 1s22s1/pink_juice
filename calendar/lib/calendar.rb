@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require 'active_support/all'
 
 class Calendar
   def year_month_header
-    "     #{today.strftime("%b")} #{today.year}     "
+    "#{today.strftime('%b')} #{today.year}".center(20)
   end
 
   def wday_header
-    "Su Mo Tu We Th Fr Sa"
+    'Su Mo Tu We Th Fr Sa'
   end
 
   def first_line
@@ -19,15 +21,15 @@ class Calendar
   def other_lines
     lines = []
     line = []
-    
+
     (2..today.end_of_month.day).each do |i|
-      line << format("%2d", i)
+      line << format('%2d', i)
 
-      if(line.length == 7)
-        lines << line.join(' ')
+      next unless line.length == 7
 
-        line = []
-      end
+      lines << line.join(' ')
+
+      line = []
     end
 
     lines << line.join(' ')

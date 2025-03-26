@@ -38,6 +38,7 @@ GEM
       rspec-support (~> 3.13.0)
     rspec-support (3.13.2)
     securerandom (0.4.1)
+    timecop (0.9.10)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
 
@@ -48,6 +49,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   rspec
+  timecop
 
 BUNDLED WITH
    2.6.3
