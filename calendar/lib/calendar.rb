@@ -16,6 +16,25 @@ class Calendar
     line
   end
 
+  def other_lines
+    lines = []
+    line = []
+    
+    (2..today.end_of_month.day).each do |i|
+      line << format("%2d", i)
+
+      if(line.length == 7)
+        lines << line.join(' ')
+
+        line = []
+      end
+    end
+
+    lines << line.join(' ')
+
+    lines.join("\n")
+  end
+
   def today
     @today ||= Date.today
   end
