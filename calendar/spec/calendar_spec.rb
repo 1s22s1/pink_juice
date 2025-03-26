@@ -1,16 +1,26 @@
 # frozen_string_literal: true
 
 describe Calendar do
-  let(:calendar) { Calendar.new }
-
-  before(:all) do
-    Timecop.freeze(Date.new(2025, 0o3, 26))
-  end
+  let(:calendar) { described_class.new }
 
   describe '#year_month_header' do
     subject { calendar.year_month_header }
 
-    it { is_expected.to eq '      Mar 2025      ' }
+    around do |ex|
+      travel_to(today) { ex.run }
+    end
+
+    context 'when today is 2025/03/31' do
+      let(:today) { Date.parse('2025/03/31') }
+
+      it { is_expected.to eq '      Mar 2025      ' }
+    end
+
+    context 'when today is 2025/04/01' do
+      let(:today) { Date.parse('2025/04/01') }
+
+      it { is_expected.to eq '      Apr 2025      ' }
+    end
   end
 
   describe '#wday_header' do
@@ -22,7 +32,21 @@ describe Calendar do
   describe '#first_line' do
     subject { calendar.first_line }
 
-    it { is_expected.to eq '                   1' }
+    around do |ex|
+      travel_to(today) { ex.run }
+    end
+
+    context 'when today is 2025/03/31' do
+      let(:today) { Date.parse('2025/03/31') }
+
+      it { is_expected.to eq '                   1' }
+    end
+
+    context 'when today is 2025/04/01' do
+      let(:today) { Date.parse('2025/04/01') }
+
+      it { is_expected.to eq '       1            ' }
+    end
   end
 
   describe '#other_lines' do
