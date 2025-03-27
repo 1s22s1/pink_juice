@@ -11,7 +11,7 @@ class KaraokeMachine
     @melody.split('').map do |note_name|
       if KEY_BOARD_PATTERN.include?(note_name)
         index = KEY_BOARD_PATTERN.index(note_name) + key
-
+        binding.irb
         KEY_BOARD_PATTERN[index]
       else
         note_name

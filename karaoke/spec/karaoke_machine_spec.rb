@@ -20,11 +20,18 @@ RSpec.describe KaraokeMachine do
       it { is_expected.to eq '|' }
     end
 
-    context '２つキーを上げた場合' do
-      let(:melody) { 'CDEFG' }
-      let(:key) { 2 }
+    context '1つキーを上げた場合' do
+      let(:melody) { 'CD' }
+      let(:key) { 1 }
 
-      it { is_expected.to eq 'DEF#GA' }
+      it { is_expected.to eq 'C#D#' }
+    end
+
+    context '1つキーを下げた場合' do
+      let(:melody) { 'C#' }
+      let(:key) { -1 }
+
+      it { is_expected.to eq 'C' }
     end
   end
 end
