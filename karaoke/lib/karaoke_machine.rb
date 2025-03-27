@@ -8,13 +8,12 @@ class KaraokeMachine
   end
 
   def transpose(key)
-    @melody.split('').map do |note_name|
-      if KEY_BOARD_PATTERN.include?(note_name)
-        index = KEY_BOARD_PATTERN.index(note_name) + key
-        binding.irb
-        KEY_BOARD_PATTERN[index]
+    @melody.scan(/||\s|[A-G]/).map do |pattern|
+      if ['|'].include?(pattern)
+        pattern
       else
-        note_name
+        index = KEY_BOARD_PATTERN.index(pattern) + key
+        KEY_BOARD_PATTERN[index]
       end
     end.join
   end
