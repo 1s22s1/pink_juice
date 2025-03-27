@@ -12,7 +12,7 @@ class KaraokeMachine
       if ['|', ' '].include?(pattern)
         pattern
       else
-        index = KEY_BOARD_PATTERN.index(pattern) + key
+        index = (KEY_BOARD_PATTERN.index(pattern) + key) % KEY_BOARD_PATTERN.length
         KEY_BOARD_PATTERN[index]
       end
     end.join
