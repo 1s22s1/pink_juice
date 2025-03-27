@@ -14,7 +14,7 @@ class KaraokeMachine
 
         KEY_BOARD_PATTERN[index]
       else
-        ' '
+        note_name
       end
     end.join
   end

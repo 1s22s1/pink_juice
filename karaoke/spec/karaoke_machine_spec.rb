@@ -13,6 +13,13 @@ RSpec.describe KaraokeMachine do
       it { is_expected.to eq 'C# D#' }
     end
 
+    context '|が含まれている場合' do
+      let(:melody) { '|' }
+      let(:key) { 1 }
+
+      it { is_expected.to eq '|' }
+    end
+
     context '２つキーを上げた場合' do
       let(:melody) { 'CDEFG' }
       let(:key) { 2 }
