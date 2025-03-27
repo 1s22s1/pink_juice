@@ -8,8 +8,8 @@ class KaraokeMachine
   end
 
   def transpose(key)
-    @melody.scan(/||\s|[A-G]|[ACDFG]#/).map do |pattern|
-      if ['|'].include?(pattern)
+    @melody.scan(/\|| |[A-G]/).map do |pattern|
+      if ['|', ' '].include?(pattern)
         pattern
       else
         index = KEY_BOARD_PATTERN.index(pattern) + key
