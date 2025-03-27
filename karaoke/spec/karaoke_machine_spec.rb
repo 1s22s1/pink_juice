@@ -41,6 +41,13 @@ RSpec.describe KaraokeMachine do
       it { is_expected.to eq 'C' }
     end
 
+    context '1オクターブ下げる場合' do
+      let(:melody) { 'C' }
+      let(:key) { -12 }
+
+      it { is_expected.to eq 'C' }
+    end
+
     context '複数の音韻の場合' do
       let(:melody) { 'CD' }
       let(:key) { 1 }
