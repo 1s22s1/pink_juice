@@ -6,11 +6,11 @@ class KaraokeMachine
   end
 
   def transpose(key)
-    @melody.scan(/\|| |[ACDFG]#/).map do |pattern|
+    @melody.scan(/\|| |[ACDFG]#|[A-G]/).map do |pattern|
       if ['|', ' '].include?(pattern)
         pattern
       else
-        KEYBOARD_PATTERN[KEYBOARD_PATTERN.find_index(pattern) + 1]
+        KEYBOARD_PATTERN[KEYBOARD_PATTERN.find_index(pattern) + key]
       end
     end.join
   end
