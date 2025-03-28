@@ -30,19 +30,21 @@ int main()
     for (int height = 1; height <= *max_element(h.begin(), h.end()); height++)
     {
         vector<int> line(N);
+
         for (auto i : ranges::views::iota(0, N))
         {
-            if (h.at(i) < height)
+            if (height <= h.at(i))
             {
-                line.at(i) = 0;
+                line.at(i) = 1;
             }
             else
             {
-                line.at(i) = 1;
+                line.at(i) = 0;
             }
         }
 
         line.erase(unique(line.begin(), line.end()), line.end());
+
         answer += count(line.begin(), line.end(), 1);
     }
 
