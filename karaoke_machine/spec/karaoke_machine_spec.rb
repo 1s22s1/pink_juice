@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe KaraokeMachine do
   let(:karaoke_machine) { described_class.new(melody) }
 
@@ -28,6 +30,20 @@ RSpec.describe KaraokeMachine do
     context '1キーを下げる場合' do
       let(:melody) { 'D' }
       let(:key) { -1 }
+
+      it { is_expected.to eq 'C#' }
+    end
+
+    context '1オクターブを上げる場合' do
+      let(:melody) { 'C#' }
+      let(:key) { 12 }
+
+      it { is_expected.to eq 'C#' }
+    end
+
+    context '1オクターブを下げる場合' do
+      let(:melody) { 'C#' }
+      let(:key) { -12 }
 
       it { is_expected.to eq 'C#' }
     end
