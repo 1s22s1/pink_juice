@@ -18,7 +18,7 @@ RSpec.describe KaraokeMachine do
       it { is_expected.to eq ' ' }
     end
 
-    xcontext '1キーを上げる場合' do
+    context '1キーを上げる場合' do
       let(:melody) { 'C#' }
       let(:key) { 1 }
 
